@@ -1,0 +1,11 @@
+[ignore]
+.*/invalidPackageJson.*
+./conf
+./coverage
+.*/fixtures/package.json
+
+[include]
+
+[libs]
+
+[options]
