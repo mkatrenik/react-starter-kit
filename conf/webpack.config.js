@@ -1,3 +1,4 @@
 module.exports = require('./make-webpack-config')({
-  devtool: 'eval',
+  devtool: 'source-map',
+  debug: true
 });
