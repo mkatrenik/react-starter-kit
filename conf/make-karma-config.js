@@ -4,11 +4,13 @@ module.exports = function(options) {
   var karmaConfig = {
     frameworks: ['mocha', 'chai'],
 
-    browsers: ['Chrome'],
+    browsers: [
+      'PhantomJS',
+      //'Chrome'
+    ],
 
     files: [
       // This shim adds .bind to PhantomJS
-      './phantomjs-shim.js',
       './tests.webpack.js'
     ],
 
