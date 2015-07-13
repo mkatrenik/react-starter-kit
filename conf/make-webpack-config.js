@@ -28,14 +28,15 @@ module.exports = function(options) {
   var jsLoaders = ['babel'];
 
   return {
-    entry: './app/index.js',
+    entry: ['webpack/hot/dev-server', './src/index.js'],
     debug: !options.production,
     devtool: options.devtool,
     output: {
       path: options.production ? './dist' : './build',
-      publicPath: options.production ? '' : 'http://localhost:3000/',
+      publicPath: options.production ? '' : 'http://localhost:3001/',
       filename: options.production ? 'app.[hash].js' : 'app.js',
     },
+    watchOptions: {poll: 100},
     module: {
       preLoaders: options.lint ? [
         {
@@ -91,6 +92,14 @@ module.exports = function(options) {
     },
     resolve: {
       extensions: ['', '.js', '.jsx', '.sass', '.scss', '.less', '.css'],
+    },
+    devServer: {
+      // host: hostname,
+      port: 3001,
+      historyApiFallback: true,
+      proxy: {
+        '/api/*': 'http://stg-api.sync2.merck.com'
+      }
     },
     plugins: options.production ? [
       // Important to keep React file size down

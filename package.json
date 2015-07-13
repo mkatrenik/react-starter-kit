@@ -1,6 +1,7 @@
 {
-  "name": "react-starter",
-  "version": "0.0.0",
+  "name": "app",
+  "private": true,
+  "version": "1.0.0",
   "description": "React starter kit. Webpack, Babel, Sass, Karma, React 0.13 and more.",
   "main": "app/index.js",
   "scripts": {
@@ -8,13 +9,15 @@
     "test:watch": "karma start conf/karma.conf.js",
     "test:coverage": "karma start conf/karma.coverage.conf.js --single-run",
     "test:ci": "karma start conf/karma.ci.conf.js --single-run",
-    "dev": "webpack-dev-server --port 3000 --config conf/webpack.config.js --hot --progress --colors --inline",
+    "dev": "webpack-dev-server --config conf/webpack.config.js --progress --hot --colors --inline",
     "build": "webpack --config conf/webpack.production.js"
   },
   "author": "Martin Katrenik <martin.katrenik@merck.com>",
   "license": "MIT",
   "dependencies": {
-    "react": "~0.13.0",
+    "react": "^0.14.0-beta1",
+    "react-dom": "^0.14.0-beta1",
+    "react-flexr": "^2.0.0",
     "react-router": "^1.0.0-beta3",
     "redux": "^0.12.0"
   },
@@ -35,6 +38,7 @@
     "isparta-instrumenter-loader": "^0.2.1",
     "karma": "^0.12.37",
     "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.0",
     "karma-coverage": "^0.4.2",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.0.2",

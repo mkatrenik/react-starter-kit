@@ -4,16 +4,16 @@ module.exports = function(options) {
   var karmaConfig = {
     frameworks: ['mocha', 'chai'],
 
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     files: [
       // This shim adds .bind to PhantomJS
       './phantomjs-shim.js',
-      '../app/**/__tests__/*.js',
+      './tests.webpack.js'
     ],
 
     preprocessors: {
-      '../app/**/__tests__/*.js': ['webpack'],
+      'tests.webpack.js': ['webpack']
     },
 
     webpackMiddleware: {
@@ -28,6 +28,7 @@ module.exports = function(options) {
       'karma-chai',
       'karma-phantomjs-launcher',
       'karma-mocha-reporter',
+      'karma-chrome-launcher'
     ],
   };
 
@@ -59,6 +60,7 @@ module.exports = function(options) {
     karmaConfig.plugins.push('karma-notify-reporter');
   }
 
+  webpackConfig.devtool = 'inline-source-map';
   karmaConfig.webpack = webpackConfig;
 
   return karmaConfig;

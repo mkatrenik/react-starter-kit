@@ -2,3 +2,5 @@ bundle*
 node_modules
 coverage
 dist
+fake-api
+
