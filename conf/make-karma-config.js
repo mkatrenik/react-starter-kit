@@ -5,8 +5,8 @@ module.exports = function(options) {
     frameworks: ['mocha', 'chai'],
 
     browsers: [
-      'PhantomJS',
-      //'Chrome'
+      // 'PhantomJS',
+      'Chrome'
     ],
 
     files: [

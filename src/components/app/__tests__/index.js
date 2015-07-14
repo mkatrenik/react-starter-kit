@@ -1,17 +1,42 @@
 import React from 'react/addons';
-import Application from '../index.js';
-import styles from '../style.sass';
+import ApplicationContainer, { Application } from '../index.js';
+import Header from '../../header/index';
+import Articles from '../../articles/index';
+// import styles from '../style.sass';
+import { stubRouterContext, findComponentWithType } from '../../../utils/test-utils';
 
-describe('Application', function () {
-  it('displays the component', function () {
-    const TestUtils = React.addons.TestUtils;
+console.log(findComponentWithType);
 
-    const application = TestUtils.renderIntoDocument(
-      <Application />
-    );
+const { TestUtils } = React.addons;
+// const shallowRenderer = TestUtils.createRenderer();
 
-    const divs = TestUtils.scryRenderedDOMComponentsWithClass(application, styles.main);
+describe.only('Application', function () {
+  it('displays the `Header` component', function () {
+    const Subject = stubRouterContext(Application, {news: []});
+    const application = TestUtils.renderIntoDocument(<Subject />);
 
-    expect(divs.length).to.equal(1);
+    const header = TestUtils.findRenderedComponentWithType(application, Header);
+    expect(header).to.be.an('object');
   });
+
+  it('passes props to nested components', function () {
+    const news = [
+      {
+        'article_id': 1,
+        title: 'foo'
+      }
+    ];
+    const Subject = stubRouterContext(Application, { news });
+    const application = TestUtils.renderIntoDocument(<Subject />);
+
+    const articles = findComponentWithType(application, Articles);
+    expect(articles.props.news).to.include(news[0]);
+  });
+
+  // it('displays all subcomponents', () => {
+  //   shallowRenderer.render(<Application news={[]} />);
+  //   const component = shallowRenderer.getRenderOutput();
+  //   console.log(component);
+  //   expect(component.type).to.equal('header');
+  // });
 });

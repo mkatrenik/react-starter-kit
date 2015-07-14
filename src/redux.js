@@ -1,11 +1,12 @@
 import { createRedux } from 'redux';
-// import * as stores from './stores';
+import * as workBenchActions from './components/my-workbench/reducers';
+console.log(workBenchActions);
 
-const reduxInstance = createRedux({
+const reduxInstance = window.redux = createRedux({
   debug(state, action) {
     console.log(action, state);
-    return state;
-  }
+  },
+  ...workBenchActions
 });
 const dispatcher = reduxInstance.getDispatcher();
 
