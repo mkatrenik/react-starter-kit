@@ -24,9 +24,6 @@ export class Application extends React.Component {
     // console.log('Application: ', this.props);
     return (
       <div>
-        {/*<div className="sidemenu">
-          menu
-        </div>*/}
         <div className='articles'>
           <Header />
           <Grid className={styles.personalizedContent} gutter='0px'>
@@ -75,7 +72,8 @@ export class Application extends React.Component {
               <Articles news={this.props.articles}/>
             </Cell>
           </Grid>
-          <Highlights highlights={this.props.articles_highlights} />
+          {//<Highlights highlights={this.props.articles_highlights} />
+          }
           <Grid className={styles.border} gutter='0px'>
             <Cell size='3/12'>
               1
@@ -115,11 +113,11 @@ export default class ApplicationContainer extends React.Component {
     ;
   }
 
-  componentWillUpdate(nextProps) {
-    const nextChannel = nextProps.location.query.channel;
-    const currChannel = this.props.location.query.channel;
-    if (nextChannel !== currChannel) { fetchHighlights({ channel: nextChannel }); }
-  }
+  // componentWillUpdate(nextProps) {
+  //   const nextChannel = nextProps.location.query.channel;
+  //   const currChannel = this.props.location.query.channel;
+  //   if (nextChannel !== currChannel) { fetchHighlights({ channel: nextChannel }); }
+  // }
 
   render() {
     // console.log(this.props);
