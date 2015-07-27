@@ -1,7 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
 import { Link } from 'react-router';
-import { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED } from '../constants/TodoFilters';
+import { constants as todoConstants } from '../todos';
+
+const { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED } = todoConstants;
+
 
 const FILTER_TITLES = {
   [SHOW_ALL]: 'All',

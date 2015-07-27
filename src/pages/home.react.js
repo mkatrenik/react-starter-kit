@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router';
-import { AddTodo, TodoItem, Footer } from '../components';
+
+import {
+  AddTodoComponent as AddTodo,
+  TodoItemComponent as TodoItem,
+  FooterComponent as Footer,
+  actions as todoActions,
+  constants as todoConstants
+} from '../modules/todos';
+
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as TodoActions from '../actions/TodoActions';
-import { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED } from '../constants/TodoFilters';
 
+
+const { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED } = todoConstants;
 
 const TODO_FILTERS = {
   [SHOW_ALL]: () => true,
@@ -23,7 +31,7 @@ export default class Home extends Component {
   render() {
     const { dispatch, state } = this.props;
     const filter = (state.router.query && state.router.query.filter) || SHOW_ALL;
-    const actions = bindActionCreators(TodoActions, dispatch);
+    const actions = bindActionCreators(todoActions, dispatch);
     const filteredTodos = state.todos.filter(TODO_FILTERS[filter]);
     const markedCount = filteredTodos.reduce((count, todo) =>
       todo.marked ? count + 1 : count,

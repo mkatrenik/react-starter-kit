@@ -2,11 +2,11 @@ var webpackConfig = require('./webpack.config.js');
 
 module.exports = function(options) {
   var karmaConfig = {
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha'],
 
     browsers: [
-      // 'PhantomJS',
-      'Chrome'
+      'PhantomJS',
+      // 'Chrome'
     ],
 
     files: [
@@ -27,7 +27,6 @@ module.exports = function(options) {
     plugins: [
       'karma-webpack',
       'karma-mocha',
-      'karma-chai',
       'karma-phantomjs-launcher',
       'karma-mocha-reporter',
       'karma-chrome-launcher'

@@ -1,4 +1,5 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, MARK_TODO, MARK_ALL, CLEAR_MARKED } from '../actions/ActionTypes';
+import { ADD_TODO, DELETE_TODO, EDIT_TODO, MARK_TODO, MARK_ALL, CLEAR_MARKED } from './action-types';
+
 
 const initialState = [{
   text: 'Use Redux',
@@ -6,7 +7,7 @@ const initialState = [{
   id: 0
 }];
 
-export default function todos(state = initialState, action) {
+export function todos(state = initialState, action) {
   switch (action.type) {
   case ADD_TODO:
     return [{

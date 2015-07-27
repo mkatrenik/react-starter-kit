@@ -12,8 +12,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 import { store } from './redux';
-import Home from './pages/home.react';
-import Wrapper from './pages/wrapper.react';
+import { Home, Layout } from './pages';
 
 
 class App extends Component {
@@ -25,7 +24,7 @@ class App extends Component {
             return (
               <Router history={history}>
                 <Route component={reduxRouteComponent(store)}>
-                  <Route component={Wrapper}>
+                  <Route component={Layout}>
                     <Route path="/" component={Home} />
                   </Route>
                 </Route>
