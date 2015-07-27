@@ -26,7 +26,6 @@ export default class TodoItem extends Component {
   }
 
   render() {
-    console.log(this.props);
     const {todo, markTodo, deleteTodo} = this.props;
 
     const element = (

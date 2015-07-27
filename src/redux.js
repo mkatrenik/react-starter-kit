@@ -1,10 +1,8 @@
 import { createStore, combineReducers, compose } from 'redux';
 import { devTools, persistState } from 'redux-devtools';
 import { todos } from './reducers';
-
 import { routerStateReducer } from 'redux-react-router';
 
-console.log(todos);
 
 const finalReducers = {
   router: routerStateReducer,

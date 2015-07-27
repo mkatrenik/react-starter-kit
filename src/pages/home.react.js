@@ -14,7 +14,7 @@ const TODO_FILTERS = {
 };
 
 
-// TODO decorator which filters routers props
+// TODO decorator which filters out routers props
 @connect(state => {
   return { state };
 })
@@ -31,7 +31,6 @@ export default class Home extends Component {
     );
     const unmarkedCount = filteredTodos.length - markedCount;
 
-    console.log(this.props, TodoItem);
     return (
       <div className='todoapp'>
         <header className='header'>
