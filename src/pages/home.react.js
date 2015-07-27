@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router';
-import { AddTodo, TodoItem } from '../components';
+import { AddTodo, TodoItem, Footer } from '../components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as TodoActions from '../actions/TodoActions';
+import { SHOW_ALL, SHOW_MARKED, SHOW_UNMARKED } from '../constants/TodoFilters';
+
+
+const TODO_FILTERS = {
+  [SHOW_ALL]: () => true,
+  [SHOW_UNMARKED]: todo => !todo.marked,
+  [SHOW_MARKED]: todo => todo.marked
+};
 
 
 // TODO decorator which filters routers props
@@ -11,14 +19,18 @@ import * as TodoActions from '../actions/TodoActions';
   return { state };
 })
 export default class Home extends Component {
+
   render() {
     const { dispatch, state } = this.props;
+    const filter = (state.router.query && state.router.query.filter) || SHOW_ALL;
     const actions = bindActionCreators(TodoActions, dispatch);
-    const filteredTodos = state.todos;
+    const filteredTodos = state.todos.filter(TODO_FILTERS[filter]);
     const markedCount = filteredTodos.reduce((count, todo) =>
       todo.marked ? count + 1 : count,
       0
     );
+    const unmarkedCount = filteredTodos.length - markedCount;
+
     console.log(this.props, TodoItem);
     return (
       <div className='todoapp'>
@@ -39,7 +51,11 @@ export default class Home extends Component {
             )}
           </ul>
         </section>
-        {this.props.children}
+        <Footer markedCount={markedCount}
+                unmarkedCount={unmarkedCount}
+                filter={filter}
+                onClearMarked={actions.clearMarked}
+                />
       </div>
     );
   }

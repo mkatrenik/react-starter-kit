@@ -1,6 +1,6 @@
 require('babel/polyfill');
 
-import './css/base.sass';
+// import './css/base.sass';
 import 'todomvc-app-css/index.css';
 
 import React, { Component } from 'react';

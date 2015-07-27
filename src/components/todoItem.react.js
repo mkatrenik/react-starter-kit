@@ -17,17 +17,12 @@ export default class TodoItem extends Component {
     };
   }
 
-  handleDoubleClick() {
-    this.setState({ editing: true });
-  }
-
   handleSave(id, text) {
     if (text.length === 0) {
       this.props.deleteTodo(id);
     } else {
       this.props.editTodo(id, text);
     }
-    this.setState({ editing: false });
   }
 
   render() {
@@ -40,7 +35,7 @@ export default class TodoItem extends Component {
                type='checkbox'
                checked={todo.marked}
                onChange={() => markTodo(todo.id)} />
-        <label onDoubleClick={::this.handleDoubleClick}>
+        <label>
           {todo.text}
         </label>
         <button className='destroy'
@@ -50,8 +45,7 @@ export default class TodoItem extends Component {
 
     return (
       <li className={classnames({
-        completed: todo.marked,
-        editing: this.state.editing
+        completed: todo.marked
       })}>
         {element}
       </li>

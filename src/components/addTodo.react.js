@@ -11,7 +11,6 @@ export default class AddTodo extends Component {
   handleSubmit(e) {
     const text = e.target.value.trim();
     if (e.which === 13) {
-      console.log('onSave', text);
       this.props.onSave(text);
       e.target.value = '';
     }
