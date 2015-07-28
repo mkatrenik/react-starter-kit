@@ -1,7 +1,6 @@
 require('babel/polyfill');
 
-// import './css/base.sass';
-import 'todomvc-app-css/index.css';
+import './assets/styles/base.sass';
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -24,7 +23,7 @@ class App extends Component {
             return (
               <Router history={history}>
                 <Route component={reduxRouteComponent(store)}>
-                  <Route component={Layout} />
+                  <Route path="/" component={Layout} />
                 </Route>
               </Router>
             );
