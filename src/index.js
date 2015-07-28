@@ -12,7 +12,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 
 import { store } from './redux';
-import { Home, Layout } from './pages';
+import { Layout } from './pages';
 
 
 class App extends Component {
@@ -24,9 +24,7 @@ class App extends Component {
             return (
               <Router history={history}>
                 <Route component={reduxRouteComponent(store)}>
-                  <Route component={Layout}>
-                    <Route path="/" component={Home} />
-                  </Route>
+                  <Route component={Layout} />
                 </Route>
               </Router>
             );
