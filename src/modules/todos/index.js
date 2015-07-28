@@ -1,4 +1,4 @@
-export { default as ActionTypes } from './action-types';
+export { default as actionTypes } from './action-types';
 export * as actions from './actions';
 export { todos } from './reducers';
 export * as constants from './constants';
