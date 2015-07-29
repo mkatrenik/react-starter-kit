@@ -2371,6 +2371,11 @@
         }
       }
     },
+    "flexboxgrid": {
+      "version": "6.2.0",
+      "from": "flexboxgrid@*",
+      "resolved": "https://registry.npmjs.org/flexboxgrid/-/flexboxgrid-6.2.0.tgz"
+    },
     "html-webpack-plugin": {
       "version": "1.6.0",
       "from": "html-webpack-plugin@>=1.5.2 <2.0.0",
