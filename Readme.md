@@ -24,7 +24,9 @@ This kit is intentionally missing a specific Flux implementation, or any other n
 
 ## Usage
 
-Fork this repo, then run:
+Requires node v0.12.4 and higher (I recommend https://github.com/creationix/nvm)
+
+Clone this repo, then run:
 
 ```
 npm install
