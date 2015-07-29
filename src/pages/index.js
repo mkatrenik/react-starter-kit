@@ -1,1 +1,1 @@
-export { default as Layout } from './layout.react';
+export { default as Layout } from './_layout/layout.react';

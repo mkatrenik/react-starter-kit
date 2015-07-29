@@ -1,6 +1,6 @@
 require('babel/polyfill');
 
-import './assets/styles/base.sass';
+import './assets/styles/bootstrap.sass';
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
@@ -29,10 +29,10 @@ class App extends Component {
             );
           }}
         </ReduxProvider>
-        <DebugPanel top right bottom>
+        {/*<DebugPanel top right bottom>
           <DevTools store={store}
                     monitor={LogMonitor} />
-        </DebugPanel>
+        </DebugPanel>*/}
       </div>
     );
   }
