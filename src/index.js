@@ -1,42 +1,26 @@
-require('babel/polyfill');
+import 'babel-core/polyfill';
 
-import './assets/styles/bootstrap.sass';
+// import './assets/styles/bootstrap.sass';
 
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route } from 'react-router';
-import { history } from 'react-router/lib/BrowserHistory';
-import { reduxRouteComponent } from 'redux-react-router';
-import { Provider as ReduxProvider } from 'react-redux';
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { ReduxRouter } from 'redux-react-router';
+import configureStore from './store/configureStore';
 
-import { store } from './redux';
-import { Layout } from './pages';
+const store = window.__redux__ = configureStore();
 
+render(
+  <Provider store={store}>
+    <ReduxRouter />
+  </Provider>,
+  document.getElementById('app')
+);
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <ReduxProvider store={store}>
-          {() => {
-            return (
-              <Router history={history}>
-                <Route component={reduxRouteComponent(store)}>
-                  <Route path="/" component={Layout} />
-                </Route>
-              </Router>
-            );
-          }}
-        </ReduxProvider>
-        {/*<DebugPanel top right bottom>
-          <DevTools store={store}
-                    monitor={LogMonitor} />
-        </DebugPanel>*/}
-      </div>
-    );
-  }
+if (process.env.NODE_ENV !== 'production') {
+  // Use require because imports can't be conditional.
+  // In production, you should ensure process.env.NODE_ENV
+  // is envified so that Uglify can eliminate this
+  // module and its dependencies as dead code.
+  require('./createDevToolsWindow')(store);
 }
-
-
-ReactDOM.render(<App />, document.getElementById('app'));

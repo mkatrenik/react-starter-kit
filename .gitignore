@@ -4,4 +4,4 @@ coverage
 dist
 api
 .shims.json
-
+npm-debug.log

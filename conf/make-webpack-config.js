@@ -28,7 +28,11 @@ module.exports = function(options) {
   var jsLoaders = ['babel'];
 
   return {
-    entry: ['webpack/hot/dev-server', './src/index.js'],
+    entry: [
+      'webpack-dev-server/client?http://localhost:3001',
+      'webpack/hot/only-dev-server',
+      './src/index'
+    ],
     debug: !options.production,
     devtool: options.devtool,
     output: {
@@ -49,12 +53,12 @@ module.exports = function(options) {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loaders: options.production ? jsLoaders : ['react-hot'].concat(jsLoaders),
+          loaders: jsLoaders,
         },
         {
           test: /\.jsx$/,
           exclude: /node_modules/,
-          loaders: options.production ? jsLoaders : ['react-hot'].concat(jsLoaders),
+          loaders: jsLoaders,
         },
         {
           test: /\.css$/,
