@@ -3,9 +3,11 @@
 ./conf
 ./coverage
 .*/fixtures/package.json
+.*/react/node_modules/.*
 
 [include]
 
 [libs]
 
 [options]
+module.system=node

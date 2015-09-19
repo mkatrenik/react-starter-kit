@@ -1,6 +1,6 @@
 import 'babel-core/polyfill';
 
-// import './assets/styles/bootstrap.sass';
+import './assets/styles/bootstrap.sass';
 
 import React from 'react';
 import { render } from 'react-dom';
@@ -22,5 +22,5 @@ if (process.env.NODE_ENV !== 'production') {
   // In production, you should ensure process.env.NODE_ENV
   // is envified so that Uglify can eliminate this
   // module and its dependencies as dead code.
-  require('./createDevToolsWindow')(store);
+  // require('./createDevToolsWindow')(store);
 }

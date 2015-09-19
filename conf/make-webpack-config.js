@@ -116,6 +116,7 @@ module.exports = function(options) {
     },
     resolve: {
       extensions: ['', '.js', '.jsx', '.sass', '.scss', '.less', '.css'],
+      alias: { app: process.cwd() + '/src' }
     },
     devServer: {
       // host: hostname,
