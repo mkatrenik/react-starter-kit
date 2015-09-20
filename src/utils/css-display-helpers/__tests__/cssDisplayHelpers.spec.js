@@ -1,6 +1,6 @@
 import React from 'react/addons';
 import {Block, Flex} from 'app/utils/css-display-helpers/cssDisplayHelpers';
-import {shallowOutput, findType} from 'app/utils/testHelpers';
+import {shallowOutput, findType} from 'app/utils/testing/testHelpers';
 
 
 describe('CSS display helper', () => {

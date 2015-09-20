@@ -58,7 +58,7 @@ export function hasClass(component, className) {
 }
 
 export function isType(component, type) {
-  return component.type === type;
+  return component && component.type === type;
 }
 
 export function findType(component, type) {
