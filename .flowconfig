@@ -4,6 +4,7 @@
 ./coverage
 .*/fixtures/package.json
 .*/react/node_modules/.*
+.*/fbjs/.*
 
 [include]
 

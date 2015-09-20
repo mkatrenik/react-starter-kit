@@ -1,3 +1,4 @@
+/* @flow */
 import 'babel-core/polyfill';
 
 import './assets/styles/bootstrap.sass';
