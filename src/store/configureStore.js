@@ -12,7 +12,7 @@ import rootReducer from '../reducers';
 const finalCreateStore = compose(
   applyMiddleware(thunk),
   reduxReactRouter({ routes, createHistory }),
-  applyMiddleware(logger),
+  applyMiddleware(logger({ collapsed: true })),
   devTools()
 )(createStore);
 
