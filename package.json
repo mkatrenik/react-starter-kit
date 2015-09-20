@@ -16,6 +16,7 @@
   "author": "Martin Katrenik <martin.katrenik@merck.com>",
   "license": "MIT",
   "dependencies": {
+    "eslint-plugin-jsdoc": "0.0.2",
     "react-router": "^1.0.0-rc1"
   },
   "devDependencies": {

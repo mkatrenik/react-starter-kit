@@ -1,11 +1,22 @@
 {
   "extends": "airbnb",
+  "plugins": [
+    "jsdoc"
+  ],
   "rules": {
     // disable requiring trailing commas because it might be nice to revert to
     // being JSON at some point, and I don't want to make big changes now.
     "comma-dangle": 0,
     // disabled because I find it tedious to write tests while following this
     // rule
-    "no-shadow": 0
+    "no-shadow": 0,
+    "jsdoc/check-param-names": 1,
+    "jsdoc/check-redundant-params": 1,
+    "jsdoc/check-redundant-returns": 1,
+    "jsdoc/newline-after-description": 0,
+    "jsdoc/require-description-complete-sentence": 0,
+    "jsdoc/require-param-description": 1,
+    "jsdoc/require-param-types": 1,
+    "jsdoc/require-return-types": 1
   }
 }
