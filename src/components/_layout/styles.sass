@@ -8,12 +8,21 @@ body
   margin: 0
 
 :local(.navbar)
+  display: flex
   background: $navbar-bg
   color: $navbar-color
   height: 72px
+  align-items: center
 
 :local(.logo)
-  padding: 21px
-  img
-    width: 30px
-    height: 30px
+  display: flex
+  justify-content: middle
+  a
+    // flex: 1
+    // padding: 21px
+    img
+      width: 30px
+      height: 30px
+
+:local(.menuButton)
+  width: 100px

@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import logo from '../../assets/images/msd_logo-symbol-only_white.svg';
-// HINT: `flexboxgrid` uses same classnames as bootstrap
-import 'flexboxgrid/dist/flexboxgrid';
+import logo from './msd_logo-symbol-only_white.svg';
 import styles from './styles.sass';
 
 
@@ -11,20 +9,21 @@ export default class Layout extends Component {
   static propTypes = { children: PropTypes.node }
 
   render() {
+    const { children } = this.props.children || '';
     return (
-      <div className={`${styles.navbar} row middle-xs`}>
-        <div className="col-xs-3">
-          menu, app name
+      <div className={styles.navbar}>
+        <div className={styles.menuButton}>
+          menu
         </div>
-        <div className="col-xs-6 center-xs">
-          <a className={styles.logo} href="#">
+        <div className={styles.logo}>
+          <a href="#">
             <img src={logo} />
           </a>
         </div>
-        <div className="col-xs-3 end-xs">
+        <div>
           settings
         </div>
-        {this.props.children && this.props.children}
+        {children}
       </div>
     );
   }

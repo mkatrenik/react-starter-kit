@@ -1,7 +1,7 @@
 /* @flow */
 import 'babel-core/polyfill';
 
-import './assets/styles/bootstrap.sass';
+import './assets/bootstrap.sass';
 
 import React from 'react';
 import { render } from 'react-dom';
