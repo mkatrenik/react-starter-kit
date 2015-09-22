@@ -11,17 +11,19 @@ export default class Layout extends Component {
   render() {
     const { children } = this.props.children || '';
     return (
-      <div className={styles.navbar}>
-        <div className={styles.menuButton}>
-          menu
-        </div>
-        <div className={styles.logo}>
-          <a href="#">
-            <img src={logo} />
-          </a>
-        </div>
-        <div>
-          settings
+      <div>
+        <div className={styles.navbar}>
+          <div className={styles.menuButton}>
+            menu
+          </div>
+          <div className={styles.logo}>
+            <a href="#">
+              <img src={logo} />
+            </a>
+          </div>
+          <div>
+            settings
+          </div>
         </div>
         {children}
       </div>
